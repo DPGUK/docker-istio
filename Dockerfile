@@ -22,7 +22,8 @@ RUN apk add --no-cache ca-certificates bash git \
     && chmod +x /usr/local/bin/helm \
     && wget -q https://github.com/istio/istio/releases/download/${ISTIO_VERSION}/istio-${ISTIO_VERSION}-linux.tar.gz  \
     && tar -xvzf istio-${ISTIO_VERSION}-linux.tar.gz \
-    && rm ./istio-${ISTIO_VERSION}-linux.tar.gz -f  
+    && rm ./istio-${ISTIO_VERSION}-linux.tar.gz -f  \
+    && apk add --no-cache ca-certificates openssl
     
     
 WORKDIR /istio-${ISTIO_VERSION}
